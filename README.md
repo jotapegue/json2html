@@ -90,6 +90,8 @@ output:
 
 ###### **Example 3:** Clubbing same keys of: Array of Objects
 
+input:
+
 ```json
 input = {
         "sample": [{
@@ -99,6 +101,12 @@ input = {
         }]
 }
 ```
+
+```php
+Json2Html::convert($input);
+```
+
+output:
 
 ```html
 <table>
