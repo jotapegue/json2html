@@ -8,7 +8,8 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Icmbio\\Json2html\\": "src/"
+            "Icmbio\\Json2html\\": "src/",
+            "Test\\": "tests/"
         }
     },
     "authors": [
