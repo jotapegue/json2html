@@ -88,7 +88,116 @@ output:
 
 <table id="info-table" class="table table-bordered table-hover"><thead><tr><th>name</th><th>description</th></tr></thead><tbody><tr><td>json2html</td><td>converts JSON to HTML tabular representation</td></tr></tbody></table>
 
-###### **Example 3:** Clubbing same keys of: Array of Objects
+###### Exemple 3:
+
+input:
+
+```json
+input = {
+ "name": "json2html",
+ "description": "Converts JSON to HTML tabular representation"
+}
+```
+
+```php
+Json2Html::header('Nome', 'Descrição')
+    ->convert($input);
+
+Json2Html::header(['Nome', 'Descrição'])
+    ->convert($input);
+
+Json2Html::header('Nome')
+    ->header('Descrição')
+    ->convert($input);
+```
+```html
+<table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>json2html</td>
+            <td>converts JSON to HTML tabular representation</td>
+        </tr>
+    </tbody>
+</table>
+```
+
+
+###### Exemple 3:
+
+input:
+
+```json
+input = {
+ "languages": [{"language": "PHP"}, {"language": "JS"}, {"language": "CSS"}],
+ "databases": [{"database": "Postgres"}, {"database": "MySQL"}, {"database": "SQLite"}]
+}
+```
+
+```php
+Json2Html::header(['Linguagens', 'Banco de dados', ['Linguagem', 'Banco']])
+    ->convert($input);
+
+
+Json2Html::header(['Linguagens', ['Linguagem']])
+    ->header(['Banco de dados', ['Banco']])
+    ->convert($input);
+```
+```html
+<table>
+    <thead>
+        <tr>
+            <th>Linguagens</th>
+            <th>Banco de dados</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Linguagem</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>PHP</td>
+                            <td>JS</td>
+                            <td>CSS</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Banco</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Postgres</td>
+                            <td>MySQL</td>
+                            <td>SQLite</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
+```
+
+
+
+###### **Example 5:** Clubbing same keys of: Array of Objects
 
 input:
 
